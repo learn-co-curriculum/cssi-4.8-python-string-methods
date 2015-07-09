@@ -141,51 +141,26 @@ I'm sorry, I don't know you...
 ```
 To a human, it's all the same name! But the computer gets confused by different capitalization, or by spaces in the input.
 
-#String Formatting
-String formatting lets us pass different data into a string, which is faster and more convenient than keeping track of different pieces of string and concatenating them ourselves. Let's take a look at the difference:
-```
->>> customer = "Rob"
->>> print "Hello, " + customer + "!"
-Hello, Rob!
->>> print "Hello, {name}!".format(name=customer)
-Hello, Rob!
-```
-That looks more complicated than just concatenating. Why would anyone do that? Well, let's look at an example where the customer changes.
+#String Formatting and Interpolation
+String interpolation lets us pass different data into a string, which is faster and more convenient than keeping track of different pieces of string and concatenating them ourselves. There are two ways to do string interpolation. With the .format method and with the %s. Let's take a look at the difference:
 
-Without format:
-```
->>> customer = "Georgia"
->>> print "Hello, " + customer + "!"
-Hello, Georgia!
->>> customer = "Norah"
->>> print "Hello, " + customer + "!"
-Hello, Norah!
->>> customer = "Nicki"
->>> print "Hello, " + customer + "!"
-Hello, Nicki!
->>> customer = "Joseph"
->>> print "Hello, " + customer + "!"
-Hello, Joseph!
-```
-With format:
-```
->>> greeting = "Hello, {name}!"
->>> customer = "Georgia"
->>> print greeting.format(customer)
-Hello, Georgia!
->>> customer = "Norah"
->>> print greeting.format(customer)
-Hello, Norah!
->>> customer = "Nicki"
->>> print greeting.format(customer)
-Hello, Nicki!
->>> customer = "Joseph"
->>> print greeting.format(customer)
-Hello, Joseph!
-```
-Much better! Instead of typing out all of those quotes and pluses, we just called a function. The code is more DRY, and we all know that we don't like wet code.
+We wrap whatever we want to interpolate "the string gets %s" % "interpreted". Oftentimes, we'll be interpolating variable names within strings.
 
-Check out python string format() in the python documentation. Remember, you can use dir() to see a strings' available functions, and help() on a function to see a description of how it is used.
++ %s
+``
+name = "Spongebob Squarepants"
+print "Who lives in a Pineapple under the sea? %s." %name
+``
+Note that here we're declaring the variable answer before we call print. We need to do it in this order because the computer reads our program sequentially. When our computer gets to "%s" %answer it won't know what that is if answer isn't declared yet.
+
++ .format
+```
+
+name = "Spongebob Squarepants"
+print "Who lives in a Pineapple under the sea? {character}".format(character=name)
+
+```
+Check out python string format() and the %s method in the python documentation. Remember, you can use dir() to see a strings' available functions, and help() on a function to see a description of how it is used.
 
 #Conclusion
 Try these python function labs!

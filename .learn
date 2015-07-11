@@ -1,6 +1,7 @@
 languages:
   - Python
 tags:
+<<<<<<< HEAD
   - cssi, python
   - variables
   - math operators
@@ -9,5 +10,12 @@ tags:
   - loops
   - functions
   - dictionaries
+=======
+  - cssi
+  - html
+  - css
+  - git
+  - command line
+>>>>>>> e7e56d343677745fd8a6623c23882080051e022d
 type:
   - reference notes

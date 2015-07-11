@@ -146,19 +146,17 @@ String interpolation lets us pass different data into a string, which is faster 
 
 We wrap whatever we want to interpolate "the string gets %s" % "interpreted". Oftentimes, we'll be interpolating variable names within strings.
 
-%s
-``
+***%s***
+```
 name = "Spongebob Squarepants"
 print "Who lives in a Pineapple under the sea? %s." %name
-``
+```
 Note that here we're declaring the variable answer before we call print. We need to do it in this order because the computer reads our program sequentially. When our computer gets to "%s" %answer it won't know what that is if answer isn't declared yet.
 
-.format
+***.format***
 ```
-
 name = "Spongebob Squarepants"
 print "Who lives in a Pineapple under the sea? {character}".format(character=name)
-
 ```
 Check out python string format() and the %s method in the python documentation. Remember, you can use dir() to see a strings' available functions, and help() on a function to see a description of how it is used.
 

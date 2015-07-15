@@ -122,23 +122,18 @@ spaces everywhere
 String interpolation lets us pass different data into a string, which is faster and more convenient than keeping track of different pieces of string and concatenating them ourselves. There are two ways to do string interpolation. With the .format method and with the %s. Let's take a look at the difference:
 
 
-
-***%s***
-The string is in quotes. The placeholder for the variable is preceded with a percent sign and the first letter of the datatype.  This is followed by a percent sign and the name of the variable
-```
-name = "Spongebob Squarepants"
-print "Who lives in a Pineapple under the sea? %s." %name
-```
-
 ***.format***
+This is the newer version of using variables within string in Python.
+
 The string is in quotes. The placeholder for the variable is surrounded by curly brackets.  The entire string is followed by .format(). Inside the parenthesis, declare what the substituted variable will be. 
 
-The Spongebob example uses a keyword argument, character, which is assigned to a global variable, name.
+The Spongebob example uses a keyword argument, 'character', which is assigned to a global variable, 'name'.
 ```
 name = "Spongebob Squarepants"
 print "Who lives in a Pineapple under the sea? {character}".format(character=name)
+>> Who lives in a Pineapple under the sea? Spongebob Squarepants.
 ```
-The hobby example uses two keyword arguments: name and hobby, which are assigned to strings within .format()
+The hobby example uses two keyword arguments: 'name' and 'hobby', which are assigned to strings within .format()
 ```
 print "{name} is the best at {hobby}".format(name='Charlie', hobby='playing piano')
 >>Charlie is the best at playing piano
@@ -149,7 +144,18 @@ This final example uses positional arguments:
 print "There are {0} students at CSSI in {1}!".format(30, "Chicago")
 >>There are 30 students at CSSI in Chicago!
 ```
+***%s***
+The older way to use variables in strings and uses the % operator.
+
+Again the whole string is in quotes. The placeholder for the variable is a percent sign and the first letter of the datatype. (%d int, %s string, %f/%g float). The entire string is followed by a percent sign and the name of the variable
+
+```
+print "The %s have %d %s championships in %d years" %("Chicago",3, "NHL", 3)
+>>The Chicago have 3 NHL championships in 3 years
+```
 
 # Conclusion
 There are a lot of string methods that we can access in python. Whenever you don't remember if one exists, or the syntax, you can always look up the documentation.
 
+# References
+[Python String Interpolation Guide] (https://mkaz.com/2012/10/10/python-string-format/)

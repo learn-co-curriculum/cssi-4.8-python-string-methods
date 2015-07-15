@@ -13,10 +13,10 @@ languages: python
 + Understand style guide and escape characters
 
 #Motivation
-We've seen how to use strings to print words to the command line - just like we printed words to with the javascript console and the python interpreter. But strings have way more power than we've seen so far. We'll look at some of the powerful functions python has for dealing with strings.
+Python has lots of prebuilt string methods that help us use and modify strings. 
 
 #Strings
-Let's explore how to use some string methods, and then jump into some challenges. Remember, you can always look back at these pages as a reference, or search for the method that you need. It's good to practice using these methods, but it's always okay to look up the function name and the syntax.In Python, strings can be declared using single or double quotes.
+Let's explore how to use some string methods, and then jump into some challenges. Remember, you can always look back at these pages as a reference, or search for the method that you need. It's good to practice using these methods, but it's always okay to look up the function name and the syntax.
 
 #Printing Strings
 ```
@@ -28,8 +28,8 @@ hello, world!
 ```
 in your command prompt. You'll be doing lots of printing, so remember this one!
 
-#User input
-In python, if you want to get text from a user, you can use the input() function. Let's try it out!
+#User Input
+In python, if you want to get text from a user, you can use the raw_input() function. Let's try it out!
 ```
 >>> name = raw_input('Enter your name: ')
 Enter your name: Joseph
@@ -37,7 +37,9 @@ Enter your name: Joseph
 'Joseph'
 ```
 
-#String concatenation
+You can also use the input() function, but the user would have to enter their name as a string, otherwise the console will throw back an error.
+
+#String Concatenation
 The process of joining two strings is called "concatenation" in programming. This is one of those things that might seem intuitive to a human but needs to be spelled out explicitly for the computer. For instance, when I run this, what will display?
 ```
 new_str = 'one' + 'two'
@@ -45,24 +47,23 @@ print new_str
 ```
 Python doesn't add anything extra - if you want a space between your words, you need to put it there!
 
-What happens when you try to concatenate a string with a variable? What if the variable is holding a number?
+When you try to concatenate a string with a datatype other than another string you will get an error.
 ```
 TypeError: cannot concatenate 'str' and 'int' objects
 ```
 
+
 #Substrings
-A substring is a part of a string. Substrings work exactly as they sound; ‘super’ is a substring of the string ‘superfly’ because ‘super’ is a part of ‘superfly’. To get a substring from a string, use square brackets and specify the range of characters that you want from the string.
+A substring is a part of a string.  To get a substring from a string, use square brackets and specify the range of characters that you want from the string. Just like in javascript arrays and python lists, string characters are indexed starting at 0.
 
 Grabbing a specific character:
 ```
 >>> old_str = 'superfly'
 >>> print old_str[0]
 s
-
 ```
-Notice here, that old_str[0] gets the first character of the string. Just like in javascript arrays, string characters are indexed starting at 0.
 
-Grabbing a substring of a range of characters in a string looks like this
+Grabbing a substring of a range of characters:
 ```
 >>> old_str = 'superfly'
 >>> print old_str[0:4]
@@ -79,8 +80,7 @@ erfluous
 >>> print old_str[:5] # From the beginning to character position 4
 super
 ```
-#String length
-Sometimes, you want to know how long a string is. Imagine you  wanted to insert line breaks into strings so that they displayed nicely - you want to know how long your strings are!
+#String Length
 
 Python gives us the len() function to determine a string's length.
 ```
@@ -93,7 +93,7 @@ Python gives us the len() function to determine a string's length.
 ```
 
 #Replace Function
-Replace() replaces a substring of a string with another substring. Here are some examples
+Replace() replaces a substring of a string with another substring. 
 ```
 >>> old_str = 'superfly'
 >>> new_str = old_str.replace('super', 'SUPA')
@@ -112,53 +112,44 @@ SEATTLE SEAHAWKS!!!
 ```
 
 #Strip Function
-
-When you prompt a user for some text or grab a string from a database, you will almost certainly want to normalize it using strip(). You want to remove unnecessary variation. For example, if you have a program that prints a greeting based on a name:
+The strip() function removes leading and trailing white space.
 ```
-# greeter.py
-user_name = raw_input('Tell me your name: ')
-
-if user_name == 'Collin':
-  print 'Oh, I know you!'
-elif user_name == 'Shubie':
-  print 'You wrote this web page!'
-else:
-  print 'I\'m sorry, I don\'t know you...'
+>>>print '     spaces everywhere     '.strip()
+spaces everywhere
 ```
-...you will get different output depending on whether the user types in:
-```
-$ python greeter.py
-Tell me your name: Collin
-Oh, I know you!
-$ python greeter.py
-Tell me your name: COLLIN
-I'm sorry, I don't know you…
-$ python greeter.py
-Tell me your name:             Collin
-I'm sorry, I don't know you...
-
-'Collin', 'COLLIN', and '                   Collin'
-```
-To a human, it's all the same name! But the computer gets confused by different capitalization, or by spaces in the input.
 
 #String Formatting and Interpolation
 String interpolation lets us pass different data into a string, which is faster and more convenient than keeping track of different pieces of string and concatenating them ourselves. There are two ways to do string interpolation. With the .format method and with the %s. Let's take a look at the difference:
 
-We wrap whatever we want to interpolate "the string gets %s" % "interpreted". Oftentimes, we'll be interpolating variable names within strings.
+
 
 ***%s***
+The string is in quotes. The placeholder for the variable is preceded with a percent sign and the first letter of the datatype.  This is followed by a percent sign and the name of the variable
 ```
 name = "Spongebob Squarepants"
 print "Who lives in a Pineapple under the sea? %s." %name
 ```
-Note that here we're declaring the variable answer before we call print. We need to do it in this order because the computer reads our program sequentially. When our computer gets to "%s" %answer it won't know what that is if answer isn't declared yet.
 
 ***.format***
+The string is in quotes. The placeholder for the variable is surrounded by curly brackets.  The entire string is followed by .format(). Inside the parenthesis, declare what the substituted variable will be. 
+
+The Spongebob example uses a keyword argument, character, which is assigned to a global variable, name.
 ```
 name = "Spongebob Squarepants"
 print "Who lives in a Pineapple under the sea? {character}".format(character=name)
 ```
-Check out python string format() and the %s method in the python documentation. Remember, you can use dir() to see a strings' available functions, and help() on a function to see a description of how it is used.
+The hobby example uses two keyword arguments: name and hobby, which are assigned to strings within .format()
+```
+print "{name} is the best at {hobby}".format(name='Charlie', hobby='playing piano')
+>>Charlie is the best at playing piano
+```
 
-#Conclusion
-Try these python function labs!
+This final example uses positional arguments:
+```
+print "There are {0} students at CSSI in {1}!".format(30, "Chicago")
+>>There are 30 students at CSSI in Chicago!
+```
+
+# Conclusion
+There are a lot of string methods that we can access in python. Whenever you don't remember if one exists, or the syntax, you can always look up the documentation.
+

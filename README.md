@@ -156,4 +156,4 @@ There are a lot of string methods that we can access in python. Whenever you don
 # References
 [Python String Interpolation Guide] (https://mkaz.com/2012/10/10/python-string-format/)
 
-<a href='https://learn.co/lessons/cssi-4.9-python-string-methods' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/cssi-4.9-python-string-methods' title='Python String Functions'>Python String Functions</a> on Learn.co and start learning to code for free.</p>
